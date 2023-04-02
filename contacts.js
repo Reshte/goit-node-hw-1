@@ -41,6 +41,7 @@ function removeContact(contactId) {
       const contact = contacts.find((contact) => contact.id === contactId);
       contacts.splice(contacts.indexOf(contact), 1);
       fs.writeFile(contactsPath, JSON.stringify(contacts), "utf-8");
+      console.log(`Contact removed`);
     })
     .catch((err) => {
       console.log(err);
@@ -59,6 +60,7 @@ function addContact(name, email, phone) {
       };
       contacts.push(contact);
       fs.writeFile(contactsPath, JSON.stringify(contacts), "utf-8");
+      console.log(`Contact added`);
     })
     .catch((err) => {
       console.log(err);
